@@ -9,13 +9,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     const String appTitle = 'Flutter layout demo';
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+debugShowCheckedModeBanner: false,
       title: appTitle,
       home: Scaffold(
         appBar: AppBar(
           title: const Text(appTitle),
         ),
-        // #docregion addWidget
         body: const SingleChildScrollView(
           child: Column(
             children: [
@@ -40,7 +39,6 @@ class MyApp extends StatelessWidget {
             ],
           ),
         ),
-        // #enddocregion addWidget
       ),
     );
   }
@@ -85,15 +83,8 @@ class TitleSection extends StatelessWidget {
                 ),
               ],
             ),
-          ),
-          /*3*/
-          // #docregion Icon
-          Icon(
-            Icons.star,
-            color: Colors.red[500],
-          ),
-          // #enddocregion Icon
-          const Text('41'),
+          ),           
+        const FavoriteWidget(),
         ],
       ),
     );
@@ -186,7 +177,6 @@ class TextSection extends StatelessWidget {
   }
 }
 
-// #docregion ImageSection
 class ImageSection extends StatelessWidget {
   const ImageSection({super.key, required this.image});
 
@@ -194,36 +184,27 @@ class ImageSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // #docregion Image-asset
     return Image.asset(
       image,
       width: 600,
       height: 240,
       fit: BoxFit.cover,
     );
-    // #enddocregion Image-asset
   }
 }
-// #enddocregion ImageSection
 
-// #docregion FavoriteWidget
 class FavoriteWidget extends StatefulWidget {
   const FavoriteWidget({super.key});
 
   @override
   State<FavoriteWidget> createState() => _FavoriteWidgetState();
 }
-// #enddocregion FavoriteWidget
 
-// #docregion _FavoriteWidgetState, _FavoriteWidgetState-fields, _FavoriteWidgetState-build
 class _FavoriteWidgetState extends State<FavoriteWidget> {
-  // #enddocregion _FavoriteWidgetState-build
+  
   bool _isFavorited = true;
   int _favoriteCount = 41;
 
-  // #enddocregion _FavoriteWidgetState-fields
-
-  // #docregion _toggleFavorite
   void _toggleFavorite() {
     setState(() {
       if (_isFavorited) {
@@ -236,9 +217,6 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
     });
   }
 
-  // #enddocregion _toggleFavorite
-
-  // #docregion _FavoriteWidgetState-build
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -265,5 +243,5 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
       ],
     );
   }
-// #docregion _FavoriteWidgetState-fields
+
 }
